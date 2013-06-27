@@ -33,4 +33,6 @@
 class Forum < ActiveRecord::Base
   has_many :topics, :dependent => :destroy
   attr_accessible :description, :name
+
+	validates :name, presence: true
 end
