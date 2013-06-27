@@ -1,0 +1,98 @@
+<!--
+
+Copyright © 2013 BluePanel.org
+
+This file is part of BluePanel-Website.
+
+    BluePanel-Website is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    BluePanel-Website is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with BluePanel-Website.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von BluePanel-Website.
+
+    BluePanel-Website ist Freie Software: Sie können es unter den Bedingungen
+    der GNU General Public License, wie von der Free Software Foundation,
+    Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+    veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+    BluePanel-Website wird in der Hoffnung, dass es nützlich sein wird, aber
+    OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+    Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+    Siehe die GNU General Public License für weitere Details.
+
+    Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+    Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>. 
+    
+-->
+
+<%- model_class = Forum -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => @forum.name %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= 'Topic Title' %></th>
+      <th><%= model_class.human_attribute_name(:last_poster_id) %></th>
+      <th><%= model_class.human_attribute_name(:last_post_at) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= 'Replies' %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for topic in @forum.topics %>
+      <% poster = User.find(topic.last_poster_id) %>
+      <tr>
+        <td><%= link_to topic.name, topic_path(topic) %></td>
+        <td><%= link_to poster.name, poster %></td>
+        <td><%= topic.last_post_at %></td>
+        <td><%=l topic.created_at %></td>
+        <td><%= topic.posts.count - 1 %></td>
+        <td>
+          <% if moderator_or_owner?(topic.user.id) %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_topic_path(topic), :class => 'btn btn-mini' %>
+          <% end %>
+          <% if moderator? %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        topic_path(topic),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-mini btn-danger' %>
+          
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if user? %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              "/topics/new?forum=#{@forum.id}",
+              :class => 'btn btn-primary' %>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              forums_path, :class => 'btn' %>
+  <% if moderator? %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_forum_path(@forum), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                forum_path(@forum),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+  <% end %>
+</div>
