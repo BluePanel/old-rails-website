@@ -32,4 +32,6 @@
 
 class Project < ActiveRecord::Base
   attr_accessible :description, :git, :name
+	
+	validates :name, presence: true
 end
