@@ -43,6 +43,7 @@ Diese Datei ist Teil von BluePanel-Website.
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
       <% if user? %>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <% end %>
@@ -54,7 +55,8 @@ Diese Datei ist Teil von BluePanel-Website.
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user_path(user) %></td>
+				<td><%= link_to user.name, user_path(user) %></td>
+				<td><%= user.title %></td>
         <% if user? %>
         <td><%= user.email %></td>
         <% if admin? %>
