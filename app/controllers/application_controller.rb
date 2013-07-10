@@ -31,5 +31,11 @@
 #     Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>. 
 
 class ApplicationController < ActionController::Base
+  before_filter :sanitize, if: :devise_controller?
   protect_from_forgery
+
+  protected
+  def sanitize
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation)}
+  end
 end
