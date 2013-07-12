@@ -26,6 +26,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise', '~> 3.0.0.rc'
 gem 'cancan'
 gem 'rolify'
+gem 'bb-ruby'
 
 gem 'jquery-rails'
 

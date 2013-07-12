@@ -27,6 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.10)
+    bb-ruby (1.0)
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
     cancan (1.6.10)
@@ -138,6 +139,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bb-ruby
   cancan
   coffee-rails (~> 4.0.0)
   devise (~> 3.0.0.rc)
