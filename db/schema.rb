@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20130628200150) do
   create_table "forums", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "posts", force: true do |t|
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "topic_id"
     t.integer  "user_id"
   end
@@ -32,16 +32,16 @@ ActiveRecord::Schema.define(version: 20130628200150) do
     t.string   "name"
     t.string   "description"
     t.string   "git"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20130628200150) do
     t.string   "name"
     t.integer  "last_poster_id"
     t.datetime "last_post_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "forum_id"
     t.integer  "user_id"
   end
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20130628200150) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "name"
     t.string   "title",                  default: "Member"
   end

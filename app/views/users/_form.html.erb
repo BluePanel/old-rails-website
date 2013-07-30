@@ -57,6 +57,16 @@ Diese Datei ist Teil von BluePanel-Website.
     </div>
 	</div>
 
+  <div class="control-group">
+    <%= f.label :roles, :class => 'control-label' %>
+    <div class="controls">
+      <% Role.all.each do |role| %> 
+        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %> 
+        <%= role.name %><br> 
+      <% end %>
+    </div> 
+  </div>
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

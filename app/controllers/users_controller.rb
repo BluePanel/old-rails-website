@@ -64,6 +64,9 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    
+    # Allow empty roles!
+    params[:user][:role_ids] ||= []
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
