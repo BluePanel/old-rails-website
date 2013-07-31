@@ -41,7 +41,8 @@ Diese Datei ist Teil von BluePanel-Website.
 
 <table class="table table-striped">
   <thead>
-    <tr>
+		<tr>
+			<th><%= model_class.human_attribute_name(:avatar) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <% if user? %>
@@ -54,7 +55,8 @@ Diese Datei ist Teil von BluePanel-Website.
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+			<tr>
+				<td><%= image_tag(user.logo.url(:small)) %></td>
 				<td><%= link_to user.name, user_path(user) %></td>
 				<td><%= user.title %></td>
         <% if user? %>

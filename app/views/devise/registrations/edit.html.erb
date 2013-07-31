@@ -58,12 +58,16 @@ Diese Datei ist Teil von BluePanel-Website.
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <%= render partial: 'avatars/form',
-             object: @user,
-                        as: :avatarable %>
 
   <div><%= f.submit "Update" %></div>
 <% end %>
+
+<h3>Update Avatar</h3>
+
+<div><%= image_tag(@user.logo.url(:medium)) %>
+<%= render partial: 'avatars/form',
+           object: @user,
+					 as: :avatarable %></div>
 
 <h3>Cancel my account</h3>
 
