@@ -67,9 +67,20 @@ Diese Datei ist Teil von BluePanel-Website.
     </div> 
   </div>
 
+  <div class="control-group">
+    <%= f.label :avatar, :class => 'control-label' %>
+    <div class="controls">
+      <%= image_tag(@user.logo.url(:medium)) %>
+      <%= render partial: 'avatars/form',
+                 object: @user,
+					       as: :avatarable %>
+    </div>
+  </div>
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 users_path, :class => 'btn' %>
   </div>
 <% end %>
+
