@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :topics
   
+  acts_as_avatarable
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -42,7 +43,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :title, :role_ids
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :title, :role_ids, :logo, :logo_crop_x, :logo_crop_y, :logo_crop_w, :avatar_tmp_basename
   # attr_accessible :title, :body
   
   validates :name,  :presence => true, :uniqueness => true

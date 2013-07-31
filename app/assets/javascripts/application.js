@@ -45,4 +45,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require avatars_for_rails
 //= require_tree .

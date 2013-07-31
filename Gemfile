@@ -27,6 +27,7 @@ gem 'devise', '~> 3.0.0.rc'
 gem 'cancan'
 gem 'rolify'
 gem 'bb-ruby'
+gem 'avatars_for_rails'
 
 gem 'jquery-rails'
 
