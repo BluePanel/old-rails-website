@@ -33,3 +33,47 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+article {
+	margin: 50px 0px;
+} 
+
+.post {
+	border: 1px solid lightgray;
+
+}
+
+.post-top {	
+	border-bottom: 1px solid lightgray; 
+}
+
+.post-padding {
+	padding: 10px 15px ; 
+}
+
+.left {
+	float: left;
+	text-align: center;
+	width: 130px;
+	padding-left: 0px;
+	padding-right: 0px;
+	border-right: 1px solid lightgray;
+}
+
+.center{
+	margin-left: 130px;
+  display: block;
+	padding-left: 15px;
+}
+
+.right {
+	float: left;
+	margin: 0px 0px 0px 0px;
+}
+
+#user-name {
+	float: left;
+	text-align: center;
+	width: 130px;
+}
+
