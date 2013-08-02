@@ -3,82 +3,127 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .post {
-	word-wrap: break-word;
-	border: 1px solid darkgray;
-	border-radius: 3px;
-	min-width: 800px;
-	margin-top: 55px;
+	margin-top: 25px;
 }
 
-.post-top {	
-	padding: 4px 0px;
-	border-bottom: 1px solid darkgray; 
+.post .post-top {
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;	
+	clear: both;
+	overflow: hidden;
 }
 
-.left {
+.post .post-top .user-name {
 	float: left;
-	text-align: left;
 	width: 150px;
-	border-right: 1px solid darkgray;
-}
-
-.center{
-	margin-left: 150px;
-  display: block;
-  padding-top: 0px;
-	padding-left: 15px;
-	white-space: pre-line;
-	//min-height: 200px;
-	border-left: 1px solid darkgray;
-}
-
-.right {
-  display: block;
-	float: right;
-	margin: 10px 5px 0px 0px;
-}
-
-.post-msg {
-	margin-top: -20px;
-	padding-right: 15px;
-	min-height: 130px;
-}
-
-.user-info{
-	padding-top: 15px;
-	padding-left: 15px;
-	white-space: pre-line;
-}
-
-.user-signature {
-	padding-bottom: 0%;
-	border-top: 1px solid lightgray;
-	margin-right: 20px;
-	min-height: 50px;
-}
-
-.user-name {
-	font-size: 110%;
-	float: left;
-	font-weight: bold;
 	text-align: center;
+}
+
+.post .post-top .post-date {
+	text-align: left;
+	margin-left: 150px;
+	padding-left: 5px;
+}
+
+.post > .post-body {
+	display: flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: -ms-flexbox;
+	flex-flow: row;
+	-moz-flex-flow: row;
+	-webkit-flex-flow: row;
+	-ms-flex-flow: row;
+	-ms-box-orient: horizontal;
+	border: 1px solid gray;
+	border-radius: 0px 0px 3px 3px;
+	clear: both;
+	overflow: hidden;	
+}
+
+.post .post-body .left {
+	white-space: pre-line;
 	width: 150px;
-	margin-right: 7px;
+	max-width: 150px;
+	flex: 0 0 auto;
+	-moz-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	border-right: 1px solid gray;
+}
+
+.post .post-body .left .user-info {
+	text-align: left;
+	padding: 5px;
+}
+
+.post .post-body .center {
+	display: flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: -ms-flexbox;
+	flex-flow: column wrap;
+	-moz-flex-flow: column wrap;
+	-webkit-flex-flow: column wrap;
+	-ms-flex-flow: column wrap;
+	-ms-box-orient: vertical;
+	flex-direction: column;
+	-moz-flex-direction: column;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	padding: 7px;
+}
+
+.post .post-body .center .post-msg {
+	word-wrap: break-word;
+	white-space: pre-line;	
+	flex-basis: 800px;
+	flex-wrap: wrap;
+	flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+}
+.post .post-body .center .sig-line {
+
+}
+
+.post .post-body .center .user-sig {
+	word-wrap: break-word;
+	max-height: 50px;
+	flex-basis: 800px;
+	flex-wrap: wrap;
+	flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+}
+
+.post .right {
+	text-align: right;
+	padding: 5px;	
 }
 
 .reply {
 	margin-top: 10px;
 	margin-left: 5px;
   text-align: left;
+  
 }
 
-.post-date {
-	font-size: 80%;
+ /*
 }
-
 .clr {
 clear: both;
 height: 0px;
 overflow: hidden;
 font-size: 0;
 }
+*/
