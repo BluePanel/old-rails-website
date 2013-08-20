@@ -28,4 +28,8 @@
 
 <br>
 
-<%= link_to 'New Project license', new_project_license_path %>
+<% if moderator? %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+    new_project_license_path,
+    :class => 'btn btn-primary' %>
+<% end %>

@@ -5,15 +5,28 @@
   <%= @project_license.name %>
 </p>
 
-<p>
+<% unless @project_license.license_url.blank? %>
+  <p>
   <strong>License url:</strong>
   <%= @project_license.license_url %>
-</p>
+  </p>
+<% end %>
 
-<p>
+<% unless @project_license.license_text.blank? %>
+  <p>
   <strong>License text:</strong>
   <%= @project_license.license_text %>
-</p>
+  </p>
+<% end %>
 
-<%= link_to 'Edit', edit_project_license_path(@project_license) %> |
-<%= link_to 'Back', project_licenses_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              project_licenses_path, :class => 'btn'  %>  
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_project_license_path(@project_license), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              project_license_path(@project_license),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
