@@ -1,5 +1,6 @@
 class ProjectLicensesController < ApplicationController
   before_action :set_project_license, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /project_licenses
   # GET /project_licenses.json
