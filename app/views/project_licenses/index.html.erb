@@ -1,0 +1,31 @@
+<h1>Listing project_licenses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>License url</th>
+      <th>License text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_licenses.each do |project_license| %>
+      <tr>
+        <td><%= project_license.name %></td>
+        <td><%= project_license.license_url %></td>
+        <td><%= project_license.license_text %></td>
+        <td><%= link_to 'Show', project_license %></td>
+        <td><%= link_to 'Edit', edit_project_license_path(project_license) %></td>
+        <td><%= link_to 'Destroy', project_license, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project license', new_project_license_path %>

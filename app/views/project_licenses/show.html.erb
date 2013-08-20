@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project_license.name %>
+</p>
+
+<p>
+  <strong>License url:</strong>
+  <%= @project_license.license_url %>
+</p>
+
+<p>
+  <strong>License text:</strong>
+  <%= @project_license.license_text %>
+</p>
+
+<%= link_to 'Edit', edit_project_license_path(@project_license) %> |
+<%= link_to 'Back', project_licenses_path %>
