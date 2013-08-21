@@ -31,6 +31,8 @@
 #     Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>. 
 
 Website::Application.routes.draw do
+  resources :categories
+
   root :to => "projects#index"
 
   devise_for :users

@@ -20,11 +20,9 @@ pre {
 
 a {
   color: #000;
-  /* remove comment to display buttons visited
   &:visited {
     color: #666;
   }
-  */
   &:hover {
     color: #fff;
     background-color: #000;

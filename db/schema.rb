@@ -11,11 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130730193952) do
+ActiveRecord::Schema.define(version: 20130821211142) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "forums", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+    t.integer  "category_id"
+    t.integer  "num_topics"
+    t.integer  "num_posts"
+    t.integer  "last_post_id"
+    t.string   "last_poster"
+  end
+
+  create_table "permissionings", force: true do |t|
+    t.integer  "forum_id"
+    t.integer  "role_id"
+    t.boolean  "read_forum"
+    t.boolean  "post_replies"
+    t.boolean  "post_topics"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,6 +78,9 @@ ActiveRecord::Schema.define(version: 20130730193952) do
     t.datetime "updated_at"
     t.integer  "forum_id"
     t.integer  "user_id"
+    t.boolean  "closed"
+    t.boolean  "sticky"
+    t.boolean  "read"
   end
 
   create_table "users", force: true do |t|
