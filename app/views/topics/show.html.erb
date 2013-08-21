@@ -17,18 +17,10 @@
       </div>  
       <div class="post-body">
         <div class="left">
-          <div class="user-info">Avatar
-          Avatar
-          Avatar
-          Avatar
-          Avatar
-          Avatar
-          Avatar
-          Avatar
-          Avatar
-          Avatar
-          Avatar
-          AvatarAvatar Avatar Avatar Avatar
+          <div class="user-info">
+            <%= post.user.title %>
+            <%= image_tag(post.user.logo.url(:medium)) %>
+            <%= mail_to(post.user.email, 'E-Mail') if user? %>
             <!-- Avatar/ Member Group/ .... -->  
           </div>
         </div>
