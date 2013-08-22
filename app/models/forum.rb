@@ -32,10 +32,13 @@
 
 class Forum < ActiveRecord::Base
   has_many :topics, :dependent => :destroy
-  attr_accessible :description, :name
+  attr_accessible :description, :name, :position, :category_id
 
+  belongs_to :category
   has_many :permissionings
   has_many :roles, :through => :permissionings
 
   validates :name, presence: true
+  validates :category_id, presence: true
+  validates :position, numericality: { only_integer: true , greater_than_or_equal_to: 0}
 end

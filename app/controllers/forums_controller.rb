@@ -37,6 +37,8 @@ class ForumsController < ApplicationController
   # GET /forums.json
   def index
     @forums = Forum.all
+    #@Forum.joins(:category).order("categories.position")
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,7 +93,7 @@ class ForumsController < ApplicationController
   # PUT /forums/1.json
   def update
     @forum = Forum.find(params[:id])
-
+      
     respond_to do |format|
       if @forum.update_attributes(params[:forum])
         format.html { redirect_to @forum, notice: 'Forum was successfully updated.' }

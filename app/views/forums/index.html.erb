@@ -44,17 +44,20 @@ Diese Datei ist Teil von BluePanel-Website.
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:topics) %></th>
+      <th><%= model_class.human_attribute_name(:category_id) %></th>
       <% if moderator? %>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% end %>
     </tr>
   </thead>
   <tbody>
-    <% @forums.each do |forum| %>
+    <!--<% @forums.sort_by{|t| - Category.find(t.category_id).position }.each do |forum| %>-->
+    <%= collection_select(:forum, :category_id, @categories, :id, :name, {:prompt => false })  %>
       <tr>
         <td><%= link_to forum.name, forum_path(forum) %></td>
         <td><%= forum.description %></td>
         <td><%= forum.topics.count %></td>
+        <td><%= Category.find(forum.category_id).position %></td>
         <% if moderator? %>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),

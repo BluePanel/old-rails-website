@@ -48,7 +48,20 @@ Diese Datei ist Teil von BluePanel-Website.
     </div>
   </div>
 
-  <div class="form-actions">
+  <div class="control-group">
+    <%= f.label :position, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :position, :step => 1,:min => 0 ,:class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+     <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => true %>
+    </div>
+  </div>
+
+ <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 forums_path, :class => 'btn' %>

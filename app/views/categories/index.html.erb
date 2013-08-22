@@ -1,29 +1,42 @@
-<h1>Listing categories</h1>
 
-<table>
+<%- model_class = Category -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:position) %></th>
+      <% if admin? %>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
     </tr>
   </thead>
-
   <tbody>
-    <% @categories.each do |category| %>
+    <% @categories.each do |cat| %>
       <tr>
-        <td><%= category.name %></td>
-        <td><%= category.position %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= cat.name %></td>
+        <td><%= cat.position %></td>
+        <% if admin? %>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_category_path(cat), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        category_path(cat),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-mini btn-danger' %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+<% if admin? %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_category_path,
+              :class => 'btn btn-primary' %>
+<% end %>

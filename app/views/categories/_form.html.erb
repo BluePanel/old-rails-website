@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :position %><br>
-    <%= f.number_field :position %>
+    <%= f.number_field :position, :step => 1,:min => 0 %>
   </div>
   <div class="actions">
     <%= f.submit %>
