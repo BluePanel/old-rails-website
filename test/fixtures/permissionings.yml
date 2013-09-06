@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  forum_id: 1
+  role_id: 1
+  read_forum: false
+  post_replies: false
+  post_topics: false
+
+two:
+  forum_id: 1
+  role_id: 1
+  read_forum: false
+  post_replies: false
+  post_topics: false

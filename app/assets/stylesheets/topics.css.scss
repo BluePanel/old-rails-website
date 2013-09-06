@@ -1,35 +1,129 @@
-// Copyright © 2013 BluePanel.org
-//
-// This file is part of BluePanel-Website.
-// 
-//     BluePanel-Website is free software: you can redistribute it and/or modify
-//     it under the terms of the GNU General Public License as published by
-//     the Free Software Foundation, either version 3 of the License, or
-//     (at your option) any later version.
-// 
-//     BluePanel-Website is distributed in the hope that it will be useful,
-//     but WITHOUT ANY WARRANTY; without even the implied warranty of
-//     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//     GNU General Public License for more details.
-// 
-//     You should have received a copy of the GNU General Public License
-//     along with BluePanel-Website.  If not, see <http://www.gnu.org/licenses/>.
-// 
-// Diese Datei ist Teil von BluePanel-Website.
-// 
-//     BluePanel-Website ist Freie Software: Sie können es unter den Bedingungen
-//     der GNU General Public License, wie von der Free Software Foundation,
-//     Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
-//     veröffentlichten Version, weiterverbreiten und/oder modifizieren.
-// 
-//     BluePanel-Website wird in der Hoffnung, dass es nützlich sein wird, aber
-//     OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
-//     Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
-//     Siehe die GNU General Public License für weitere Details.
-// 
-//     Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
-//     Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>. 
-
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post {
+	margin-top: 25px;
+}
+
+.post .post-top {
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;	
+	clear: both;
+	overflow: hidden;
+}
+
+.post .post-top .user-name {
+	float: left;
+	width: 150px;
+	text-align: center;
+}
+
+.post .post-top .post-date {
+	text-align: left;
+	margin-left: 150px;
+	padding-left: 5px;
+}
+
+.post > .post-body {
+	display: flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: -ms-flexbox;
+	flex-flow: row;
+	-moz-flex-flow: row;
+	-webkit-flex-flow: row;
+	-ms-flex-flow: row;
+	-ms-box-orient: horizontal;
+	border: 1px solid gray;
+	border-radius: 0px 0px 3px 3px;
+	clear: both;
+	overflow: hidden;	
+}
+
+.post .post-body .left {
+	white-space: pre-line;
+	width: 150px;
+	max-width: 150px;
+	flex: 0 0 auto;
+	-moz-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	border-right: 1px solid gray;
+}
+
+.post .post-body .left .user-info {
+	text-align: left;
+	padding: 5px;
+}
+
+.post .post-body .center {
+	display: flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: -ms-flexbox;
+	flex-flow: column wrap;
+	-moz-flex-flow: column wrap;
+	-webkit-flex-flow: column wrap;
+	-ms-flex-flow: column wrap;
+	-ms-box-orient: vertical;
+	flex-direction: column;
+	-moz-flex-direction: column;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	padding: 7px;
+}
+
+.post .post-body .center .post-msg {
+	word-wrap: break-word;
+	white-space: pre-line;	
+	flex-basis: 800px;
+	flex-wrap: wrap;
+	flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+}
+.post .post-body .center .sig-line {
+
+}
+
+.post .post-body .center .user-sig {
+	word-wrap: break-word;
+	max-height: 50px;
+	flex-basis: 800px;
+	flex-wrap: wrap;
+	flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+}
+
+.post .right {
+	text-align: right;
+	padding: 5px;	
+}
+
+.reply {
+	margin-top: 10px;
+	margin-left: 5px;
+  text-align: left;
+  
+}
+
+ /*
+}
+.clr {
+clear: both;
+height: 0px;
+overflow: hidden;
+font-size: 0;
+}
+*/

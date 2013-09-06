@@ -32,6 +32,7 @@
 
 Website::Application.routes.draw do
   resources :project_licenses
+  resources :categories
 
   root :to => "projects#index"
 
